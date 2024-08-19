@@ -1,0 +1,25 @@
+letra = int(input ("ingrese una letra"))
+intentos = 5
+import random
+random.
+palabra = import int(imput ("random"))
+while intentos > 0:
+    errores=0
+    for letra in palabra
+        if letra in palabra:
+            print(letra, end="")
+        else:
+            print("*" , end= "")    
+            errores +=1
+    if errores ==0:
+        print("vuelve a intentar")   
+        break
+tuletra = imput ("introduce una letra")     
+tupalabra += tuletra
+
+if tuletra not in palabra:
+    intentos -=1
+    print("error") 
+    print("tienes", +intentos, "intentos")
+    if vidas == 0:
+        print("perdiste")
