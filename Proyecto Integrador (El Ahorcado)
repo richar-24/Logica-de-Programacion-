@@ -1,7 +1,7 @@
 import random
 
 def elegir_palabra():
-    palabras = ["python", "programacion", "desarrollador", "tecnologia", "computadora"]
+    palabras = ['psicologia', 'neurona', 'percepcion', 'neurociencia', 'comportamiento', 'comportamiento', 'sensacion', 'conciencia', 'memoria' ,]
     return random.choice(palabras)
 
 def mostrar_estado(palabra, letras_adivinadas):
