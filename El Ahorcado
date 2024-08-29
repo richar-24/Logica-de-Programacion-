@@ -1,25 +1,47 @@
-letra = int(input ("ingrese una letra"))
-intentos = 5
 import random
-random.
-palabra = import int(imput ("random"))
-while intentos > 0:
-    errores=0
-    for letra in palabra
-        if letra in palabra:
-            print(letra, end="")
-        else:
-            print("*" , end= "")    
-            errores +=1
-    if errores ==0:
-        print("vuelve a intentar")   
-        break
-tuletra = imput ("introduce una letra")     
-tupalabra += tuletra
 
-if tuletra not in palabra:
-    intentos -=1
-    print("error") 
-    print("tienes", +intentos, "intentos")
-    if vidas == 0:
-        print("perdiste")
+def elegir_palabra():
+    palabras = ["python", "programacion", "desarrollador", "tecnologia", "computadora"]
+    return random.choice(palabras)
+
+def mostrar_estado(palabra, letras_adivinadas):
+    estado = ""
+    for letra in palabra:
+        if letra in letras_adivinadas:
+            estado += letra + " "
+        else:
+            estado += "_ "
+    return estado.strip()
+
+def ahorcado():
+    palabra = elegir_palabra()
+    letras_adivinadas = set()
+    letras_erroneas = set()
+    intentos = 6
+
+    print("¡Bienvenido al juego del Ahorcado!")
+    print("Intenta adivinar la palabra.")
+    
+    while intentos > 0:
+        print("\n" + mostrar_estado(palabra, letras_adivinadas))
+        print("Letras incorrectas: ", " ".join(letras_erroneas))
+        print(f"Intentos restantes: {intentos}")
+
+        letra = input("Adivina una letra: ").lower()
+
+        if letra in letras_adivinadas or letra in letras_erroneas:
+            print("Ya adivinaste esa letra.")
+        elif letra in palabra:
+            letras_adivinadas.add(letra)
+            if set(palabra) == letras_adivinadas:
+                print("\n¡Felicidades! Has adivinado la palabra:", palabra)
+                break
+        else:
+            letras_erroneas.add(letra)
+            intentos -= 1
+        
+        if intentos == 0:
+            print("\n¡Juego terminado! La palabra era:", palabra)
+
+if __name__ == "__main__":
+    ahorcado()
